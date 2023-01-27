@@ -14,7 +14,7 @@ function App() {
 		<div className="app">
 			<img
 				className="app-logo"
-				src="images/logo.svg"
+				src="/images/logo.svg"
 				alt=" Logo"
 				width="256"
 				height="256"
