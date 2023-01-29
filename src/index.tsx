@@ -1,5 +1,5 @@
 import 'assets/styles/tailwind.css'
-import 'assets/styles/app.scss'
+import 'assets/styles/app.css'
 
 const root = createRoot(document.getElementById('root'))
 const App = React.lazy(() => import('App'))

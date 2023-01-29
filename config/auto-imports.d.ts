@@ -2,14 +2,20 @@
 export {}
 declare global {
   const React: typeof import('react')
-  const StaticModule: typeof import('utils/assets-url-handler')['default']
+  const StrictMode: typeof import('react')['StrictMode']
   const Suspense: typeof import('react')['Suspense']
+  const componentDidCatch: typeof import('react')['componentDidCatch']
+  const createContext: typeof import('react')['createContext']
+  const createGlobalStyle: typeof import('styled-components')['createGlobalStyle']
   const createRef: typeof import('react')['createRef']
   const createRoot: typeof import('react-dom/client')['createRoot']
   const forwardRef: typeof import('react')['forwardRef']
+  const keyframes: typeof import('styled-components')['keyframes']
   const lazy: typeof import('react')['lazy']
   const memo: typeof import('react')['memo']
+  const rgba: typeof import('polished')['rgba']
   const startTransition: typeof import('react')['startTransition']
+  const styled: typeof import('styled-components')['default']
   const useCallback: typeof import('react')['useCallback']
   const useContext: typeof import('react')['useContext']
   const useDebugValue: typeof import('react')['useDebugValue']

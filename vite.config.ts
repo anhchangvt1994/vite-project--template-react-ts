@@ -2,10 +2,12 @@ import path from 'path'
 import fs from 'fs'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+// import react from '@vitejs/plugin-react-swc'
 import alias from '@rollup/plugin-alias'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import AutoImport from 'unplugin-auto-import/vite'
 import tailwind from 'tailwindcss'
+import tailwindNesting from 'tailwindcss/nesting'
 import autoprefixer from 'autoprefixer'
 import EnvironmentPlugin from 'vite-plugin-environment'
 
@@ -50,15 +52,28 @@ export default defineConfig(async ({ mode }) => {
 				],
 				imports: [
 					// presets
-					{
-						react: [['*', 'React'], 'Suspense'],
-					},
 					'react',
+					{
+						react: [
+							['*', 'React'],
+							'Suspense',
+							'componentDidCatch',
+							'StrictMode',
+							'createContext',
+						],
+					},
 					{
 						'react-dom/client': ['createRoot'],
 					},
 					{
-						'utils/assets-url-handler': [['default', 'StaticModule']],
+						'styled-components': [
+							['default', 'styled'],
+							'createGlobalStyle',
+							'keyframes',
+						],
+					},
+					{
+						polished: ['rgba'],
 					},
 				],
 				dts: './config/auto-imports.d.ts',
@@ -78,7 +93,11 @@ export default defineConfig(async ({ mode }) => {
 		],
 		css: {
 			postcss: {
-				plugins: [autoprefixer, tailwind('./tailwind.config.cjs')],
+				plugins: [
+					autoprefixer,
+					tailwindNesting(),
+					tailwind('./tailwind.config.cjs'),
+				],
 			},
 		},
 		resolve: {
