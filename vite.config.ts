@@ -9,6 +9,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import tailwind from 'tailwindcss'
 import tailwindNesting from 'tailwindcss/nesting'
 import autoprefixer from 'autoprefixer'
+import postcssSimpleVars from 'postcss-simple-vars'
 import EnvironmentPlugin from 'vite-plugin-environment'
 
 import {
@@ -95,7 +96,8 @@ export default defineConfig(async ({ mode }) => {
 			postcss: {
 				plugins: [
 					autoprefixer,
-					tailwindNesting(),
+					postcssSimpleVars,
+					(tailwindNesting as () => any)(),
 					tailwind('./tailwind.config.cjs'),
 				],
 			},

@@ -1,6 +1,6 @@
 module.exports = {
 	root: true,
-	ignorePatterns: ['vite.config.ts', 'env/**/*', 'config/**/*'],
+	ignorePatterns: ['vite.config.ts', 'env/**/*', 'config/**/*', 'dist/**/*'],
 	extends: [
 		'.eslintrc-auto-import.json',
 		'airbnb-typescript',
@@ -29,6 +29,7 @@ module.exports = {
 	globals: {
 		Atomics: 'readonly',
 		SharedArrayBuffer: 'readonly',
+		NodeJS: true,
 	},
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
