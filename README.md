@@ -289,7 +289,7 @@ This configuration used to support for splitting chunks of files. This solution 
 
 Reduce file's sizes, can enhance loading resource performance.
 
-Note: Don't use this solution for all cases, because the large amount of file be loaded in the bad internet supporter will make the loading resource process be slower and can be broken.
+Note: Don't use this solution for all cases, because the large amount of file be loaded in the bad internet connection will make the loading resource process be slower and can be broken.
 
 ##### How to use it ?
 
