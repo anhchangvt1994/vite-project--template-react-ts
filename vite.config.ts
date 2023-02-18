@@ -124,6 +124,15 @@ export default defineConfig(async ({ mode }) => {
 					},
 				},
 			},
+			minify: 'terser',
+			terserOptions: {
+				format: {
+					comments: false, // It will drop all the console.log statements from the final production build
+				},
+				compress: {
+					drop_console: true, // It will stop showing any console.log statement in dev tools. Make it false if you want to see consoles in production mode.
+				},
+			},
 		},
 	}
 })
