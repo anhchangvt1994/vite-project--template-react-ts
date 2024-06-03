@@ -1,11 +1,14 @@
 {
+	"ts-node": {
+		"transpileOnly": true
+		// "swc": true
+	},
 	"exclude": [
 		"node_modules",
 		"dist",
 		"package.json",
 		"package-lock.json",
-		"yarn-lock.json",
-		"config"
+		"yarn-lock.json"
 	],
 	"files": [
 		"config/auto-imports.d.ts",
@@ -38,7 +41,12 @@
 		// NOTE - Setup resolve alias path for project (use case is for auto complete sugestion)
 		"paths": {
 			"@/*": ["../*"],
-			"assets/*": ["assets/*"]
+			"assets/*": ["assets/*"],
+			"app/*": ["app/*"],
+			"hooks/*": ["hooks/*"],
+			"pages/*": ["pages/*"],
+			"components/*": ["components/*"],
+			"utils/*": ["utils/*"]
 		},
 
 		// NOTE - Tell typescript compile just only check type
@@ -49,7 +57,6 @@
 		// NOTE - This option allow us to use .tsx in project
 		// https://www.typescriptlang.org/tsconfig#jsx
 		// https://stackoverflow.com/questions/62859458/what-is-the-use-of-jsx-property-in-tsconfig-json
-		// "jsx": "preserve",
 		// "jsx": "preserve",
 		// "jsx": "react",
 		"jsx": "react-jsx",

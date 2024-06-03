@@ -20,10 +20,11 @@ const resolve = resolveTsconfigPathsToAlias()
 
 // https://vitejs.dev/config/
 export default defineConfig(async ({ mode }) => {
-	const react =
-		mode === 'development'
-			? (await import('@vitejs/plugin-react-swc')).default
-			: (await import('@vitejs/plugin-react')).default
+	// const react =
+	// 	mode === 'development'
+	// 		? (await import('@vitejs/plugin-react-swc')).default
+	// 		: (await import('@vitejs/plugin-react')).default
+	const react = await (await import('@vitejs/plugin-react')).default
 
 	promiseENVWriteFileSync.then(function () {
 		generateDTS({
@@ -68,6 +69,38 @@ export default defineConfig(async ({ mode }) => {
 					},
 					{
 						'react-dom/client': ['createRoot'],
+					},
+					'react-router-dom',
+					{
+						'react-router-dom': [
+							'createBrowserRouter',
+							'RouterProvider',
+							'BrowserRouter',
+							'useMatches',
+							'generatePath',
+						],
+					},
+					{
+						'app/router/context/InfoContext': ['useRoute'],
+						'utils/StringHelper.ts': [
+							'getSlug',
+							'getSlugWithoutDash',
+							'getUnsignedLetters',
+							'getCustomSlug',
+							'generateTitleCase',
+							'generateSentenceCase',
+							'encode',
+							'decode',
+							'hashCode',
+						],
+						'hooks/useStringHelper.ts': [
+							'useSlug',
+							'useSlugWithoutDash',
+							'useUnsignedLetters',
+							'useTitleCase',
+							'useSentenceCase',
+						],
+						'utils/CookieHelper.ts': ['getCookie', 'setCookie', 'deleteCookie'],
 					},
 					{
 						'styled-components': [

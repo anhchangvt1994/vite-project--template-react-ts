@@ -1,6 +1,6 @@
 module.exports = {
 	root: true,
-	ignorePatterns: ['vite.config.ts', 'env/**/*', 'config/**/*', 'dist/**/*'],
+	ignorePatterns: ['vite.config.ts', 'env/**/*', 'config/**/*'],
 	extends: [
 		'.eslintrc-auto-import.json',
 		'airbnb-typescript',
